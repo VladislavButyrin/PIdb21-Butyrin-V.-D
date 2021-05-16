@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureShopBusinessLogic"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopListImplement", "FurnitureShopListImplement\FurnitureShopListImplement.csproj", "{7F7ABDD2-4C19-45A2-9825-9E09EE3E517E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopFileImplement", "FurnitureShopFileImplement\FurnitureShopFileImplement.csproj", "{1F1196ED-4476-441D-8189-4DB95374DB45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureShopFileImplement", "FurnitureShopFileImplement\FurnitureShopFileImplement.csproj", "{1F1196ED-4476-441D-8189-4DB95374DB45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopDatabaseImplement", "FurnitureShopDatabaseImplement\FurnitureShopDatabaseImplement.csproj", "{788BC4CD-2C6D-4D39-9957-B677AEC76670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1F1196ED-4476-441D-8189-4DB95374DB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F1196ED-4476-441D-8189-4DB95374DB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F1196ED-4476-441D-8189-4DB95374DB45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
