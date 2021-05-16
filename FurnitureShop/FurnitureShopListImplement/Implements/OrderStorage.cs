@@ -38,7 +38,7 @@ namespace FurnitureShopListImplement.Implements
             {
                 if (order.FurnitureId == model.FurnitureId)
                 {
-                    if (order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo)
+                    if (order.ClientId == model.ClientId)
                     {
                         result.Add(CreateModel(order));
                     }

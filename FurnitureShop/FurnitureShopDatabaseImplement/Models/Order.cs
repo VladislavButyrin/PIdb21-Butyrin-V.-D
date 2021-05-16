@@ -1,4 +1,4 @@
-﻿using FurnitureShopBusinessLogic.Enums;
+﻿ using FurnitureShopBusinessLogic.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,6 +9,7 @@ namespace FurnitureShopDatabaseImplement.Models
         public int Id { get; set; }
         [Required]
         public int FurnitureId { get; set; }
+        public int ClientId { get; set; }
         [Required]
         public int Count { get; set; }
         [Required]
@@ -19,5 +20,7 @@ namespace FurnitureShopDatabaseImplement.Models
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
         public virtual Furniture Furniture { get; set; }
+
+        public virtual Client Client { get; set; }
     }
 }
