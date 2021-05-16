@@ -2,7 +2,8 @@
 using FurnitureShopBusinessLogic.BusinessLogics;
 using System;
 using System.Windows.Forms;
-using Unity;
+using Unity;
+
 
 namespace FurnitureShopView
 {
@@ -68,8 +69,7 @@ namespace FurnitureShopView
                 {
                     _orderLogic.TakeOrderInWork(new ChangeStatusBindingModel
                     {
-                        OrderId =
-                   id
+                        OrderId = id
                     });
                     LoadData();
                 }
