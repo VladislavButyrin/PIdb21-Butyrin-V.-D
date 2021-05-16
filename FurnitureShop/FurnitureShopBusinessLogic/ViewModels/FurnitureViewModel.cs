@@ -7,7 +7,7 @@ namespace FurnitureShopBusinessLogic.ViewModels
     {
         public int Id { get; set; }
 
-        [DisplayName("Название изделия")]
+        [DisplayName("Название мебели")]
         public string FurnitureName { get; set; }
 
         [DisplayName("Цена")]

@@ -42,6 +42,9 @@ namespace FurnitureShopView
             currentContainer.RegisterType<FurnitureLogic>(new
            HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<ReportLogic>(new
+           HierarchicalLifetimeManager());
+
             return currentContainer;
         }
     }
