@@ -32,9 +32,9 @@ namespace FurnitureShopFileImplement.Implements
                 return null;
             }
             return source.Orders
-                .Where(rec => rec.FurnitureId == model.FurnitureId)
-                .Select(CreateModel)
-                .ToList();
+           .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+            .Select(CreateModel)
+            .ToList();
         }
 
         public OrderViewModel GetElement(OrderBindingModel model)

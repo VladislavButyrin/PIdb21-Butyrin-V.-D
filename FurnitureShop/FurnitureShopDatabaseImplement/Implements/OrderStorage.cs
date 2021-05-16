@@ -40,18 +40,18 @@ namespace FurnitureShopDatabaseImplement.Implements
             using (var context = new FurnitureShopDatabase())
             {
                 return context.Orders
-                    .Where(rec => rec.FurnitureId == model.FurnitureId)
-                    .Select(rec => new OrderViewModel
-                    {
-                        Id = rec.Id,
-                        FurnitureName = rec.Furniture.FurnitureName,
-                        FurnitureId = rec.FurnitureId,
-                        Count = rec.Count,
-                        Sum = rec.Sum,
-                        Status = rec.Status,
-                        DateCreate = rec.DateCreate,
-                        DateImplement = rec.DateImplement
-                    })
+                    .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                .Select(rec => new OrderViewModel
+                {
+                    Id = rec.Id,
+                    FurnitureName = rec.Furniture.FurnitureName,
+                    FurnitureId = rec.FurnitureId,
+                    Count = rec.Count,
+                    Sum = rec.Sum,
+                    Status = rec.Status,
+                    DateCreate = rec.DateCreate,
+                    DateImplement = rec.DateImplement
+                })
                     .ToList();
             }
         }
