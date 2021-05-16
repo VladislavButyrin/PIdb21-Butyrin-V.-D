@@ -14,11 +14,14 @@ namespace FurnitureShopListImplement
 
         public List<Furniture> Furnitures { get; set; }
 
+        public List<Client> Clients { get; set; }
+
         private DataListSingleton()
         {
             Components = new List<Component>();
             Orders = new List<Order>();
             Furnitures = new List<Furniture>();
+            Clients = new List<Client>();
         }
 
         public static DataListSingleton GetInstance()

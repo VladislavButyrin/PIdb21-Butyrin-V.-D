@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopListImplement"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureShopFileImplement", "FurnitureShopFileImplement\FurnitureShopFileImplement.csproj", "{1F1196ED-4476-441D-8189-4DB95374DB45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopDatabaseImplement", "FurnitureShopDatabaseImplement\FurnitureShopDatabaseImplement.csproj", "{788BC4CD-2C6D-4D39-9957-B677AEC76670}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureShopDatabaseImplement", "FurnitureShopDatabaseImplement\FurnitureShopDatabaseImplement.csproj", "{788BC4CD-2C6D-4D39-9957-B677AEC76670}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FurnitureShopRestApi", "FurnitureShopRestApi\FurnitureShopRestApi.csproj", "{F606DA29-10A7-44CB-BE9C-4FD5035E30AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShopClientApp", "FurnitureShopClientApp\FurnitureShopClientApp.csproj", "{6D93E0E7-6600-49FA-983E-F595D8100F65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{788BC4CD-2C6D-4D39-9957-B677AEC76670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F606DA29-10A7-44CB-BE9C-4FD5035E30AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F606DA29-10A7-44CB-BE9C-4FD5035E30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F606DA29-10A7-44CB-BE9C-4FD5035E30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F606DA29-10A7-44CB-BE9C-4FD5035E30AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D93E0E7-6600-49FA-983E-F595D8100F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D93E0E7-6600-49FA-983E-F595D8100F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D93E0E7-6600-49FA-983E-F595D8100F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D93E0E7-6600-49FA-983E-F595D8100F65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

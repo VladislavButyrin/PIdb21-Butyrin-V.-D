@@ -4,7 +4,8 @@ using FurnitureShopBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Unity;
+using Unity;
+
 
 namespace FurnitureShopView
 {
@@ -17,11 +18,14 @@ namespace FurnitureShopView
 
         private readonly OrderLogic _logicO;
 
-        public FormCreateOrder(FurnitureLogic logicF, OrderLogic logicO)
+        private readonly ClientLogic _logicC;
+
+        public FormCreateOrder(FurnitureLogic logicF, OrderLogic logicO, ClientLogic logicC)
         {
             InitializeComponent();
             _logicF = logicF;
             _logicO = logicO;
+            _logicC = logicC;
         }
 
         private void FormCreateOrder_Load(object sender, EventArgs e)
@@ -35,6 +39,14 @@ namespace FurnitureShopView
                     comboBoxFurniture.ValueMember = "Id";
                     comboBoxFurniture.DataSource = list;
                     comboBoxFurniture.SelectedItem = null;
+                }
+                List<ClientViewModel> listClients = _logicC.Read(null);
+                if (listClients != null)
+                {
+                    comboBoxClient.DisplayMember = "ClientFIO";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.DataSource = listClients;
+                    comboBoxClient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -91,10 +103,17 @@ namespace FurnitureShopView
                MessageBoxIcon.Error);
                 return;
             }
+            if (comboBoxClient.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     FurnitureId = Convert.ToInt32(comboBoxFurniture.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
