@@ -4,7 +4,8 @@ using FurnitureShopBusinessLogic.ViewModels;
 using FurnitureShopListImplement.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq;
+
 
 namespace FurnitureShopListImplement.Implements
 {
