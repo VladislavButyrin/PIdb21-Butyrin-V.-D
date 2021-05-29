@@ -115,15 +115,15 @@ namespace FurnitureShopDatabaseImplement.Implements
                 FurnitureId = order.FurnitureId,
                 ClientId = order.ClientId,
                 ClientFIO = order.Client.ClientFIO,
+                ImplementerId = order.ImplementerId,
                 FurnitureName = order.Furniture.FurnitureName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
                 DateCreate = order.DateCreate,
                 DateImplement = order?.DateImplement,
-                ImplementerId = order.ImplementerId,
                 ImplementerName = order.ImplementerId.HasValue ?
-                        order.Implementer.Name : string.Empty,              
+                    order.Implementer.Name : string.Empty
             };
         }
 

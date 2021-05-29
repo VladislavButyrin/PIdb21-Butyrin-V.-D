@@ -37,6 +37,7 @@ namespace FurnitureShopView
                     dataGridView.Columns[0].Visible = false;
                     dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[2].Visible = false;
+                    dataGridView.Columns[3].Visible = false;
                     dataGridView.Columns[4].Visible = false;
                 }
             }
@@ -136,6 +137,12 @@ namespace FurnitureShopView
         private void ImplementersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormImplementers>();
+            form.ShowDialog();
+        }
+
+        private void MailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessages>();
             form.ShowDialog();
         }
     }

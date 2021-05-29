@@ -4,14 +4,16 @@ using FurnitureShopDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FurnitureShopDatabaseImplement.Migrations
 {
     [DbContext(typeof(FurnitureShopDatabase))]
-    partial class FurnitureShopDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20210526140609_MailFix")]
+    partial class MailFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
