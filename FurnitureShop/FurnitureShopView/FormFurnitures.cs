@@ -28,14 +28,7 @@ namespace FurnitureShopView
         {
             try
             {
-                var list = logic.Read(null);
-                if (list != null)
-                {
-                    dataGridView.DataSource = list;
-                    dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[1].AutoSizeMode =
-                    DataGridViewAutoSizeColumnMode.Fill;
-                }
+                Program.ConfigGrid(logic.Read(null), dataGridView);
             }
             catch (Exception ex)
             {
@@ -92,6 +85,7 @@ namespace FurnitureShopView
         private void buttonRef_Click(object sender, EventArgs e)
         {
             LoadData();
-        }
+        }
+
     }
 }

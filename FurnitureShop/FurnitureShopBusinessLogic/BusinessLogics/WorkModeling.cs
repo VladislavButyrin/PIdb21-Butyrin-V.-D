@@ -78,8 +78,7 @@ namespace FurnitureShopBusinessLogic.BusinessLogics
                         order.Count);
                         _orderLogic.FinishOrder(new ChangeStatusBindingModel
                         {
-                            OrderId = order.Id,
-                            ImplementerId = implementer.Id
+                            OrderId = order.Id
                         });
                         // отдыхаем
                         Thread.Sleep(implementer.PauseTime);
