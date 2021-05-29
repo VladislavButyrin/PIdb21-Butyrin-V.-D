@@ -39,11 +39,12 @@
             this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startWorkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
-            this.MailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             this.отчетыToolStripMenuItem,
             this.ClientsToolStripMenuItem,
             this.startWorkingToolStripMenuItem,
-            this.MailsToolStripMenuItem});
+            this.MailsToolStripMenuItem,
+            this.createBackupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -138,6 +140,13 @@
             this.startWorkingToolStripMenuItem.Text = "Запуск работ";
             this.startWorkingToolStripMenuItem.Click += new System.EventHandler(this.startWorkingToolStripMenuItem_Click);
             // 
+            // MailsToolStripMenuItem
+            // 
+            this.MailsToolStripMenuItem.Name = "MailsToolStripMenuItem";
+            this.MailsToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.MailsToolStripMenuItem.Text = "Письма";
+            this.MailsToolStripMenuItem.Click += new System.EventHandler(this.MailsToolStripMenuItem_Click);
+            // 
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -176,12 +185,12 @@
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
-            // MailsToolStripMenuItem
+            // createBackupToolStripMenuItem
             // 
-            this.MailsToolStripMenuItem.Name = "MailsToolStripMenuItem";
-            this.MailsToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.MailsToolStripMenuItem.Text = "Письма";
-            this.MailsToolStripMenuItem.Click += new System.EventHandler(this.MailsToolStripMenuItem_Click);
+            this.createBackupToolStripMenuItem.Name = "createBackupToolStripMenuItem";
+            this.createBackupToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.createBackupToolStripMenuItem.Text = "Создать бекап";
+            this.createBackupToolStripMenuItem.Click += new System.EventHandler(this.createBackupToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -223,5 +232,6 @@
         private System.Windows.Forms.ToolStripMenuItem ImplementersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startWorkingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createBackupToolStripMenuItem;
     }
 }
