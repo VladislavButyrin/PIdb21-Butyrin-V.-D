@@ -2,6 +2,7 @@
 using FurnitureShopBusinessLogic.BindingModels;
 using FurnitureShopBusinessLogic.ViewModels;
 using FurnitureShopFileImplement.Models;
+using FurnitureShopBusinessLogic.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,9 @@ namespace FurnitureShopFileImplement.Implements
                !model.DateTo.HasValue && rec.DateCreate.Date == model.DateCreate.Date) ||
                (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date >=
                model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date) ||
-               (model.ClientId.HasValue && rec.ClientId == model.ClientId)).Select(CreateModel).ToList();
+               (model.ClientId.HasValue && rec.ClientId == model.ClientId) ||
+               (model.FreeOrders.HasValue && model.FreeOrders.Value && rec.Status == OrderStatus.Принят) ||
+               (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется)).Select(CreateModel).ToList();
         }
 
         public OrderViewModel GetElement(OrderBindingModel model)
@@ -93,6 +96,7 @@ namespace FurnitureShopFileImplement.Implements
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
             order.ClientId = Convert.ToInt32(model.ClientId);
+            order.ImplementerId = model.ImplementerId.Value;
             return order;
         }
 
@@ -116,6 +120,8 @@ namespace FurnitureShopFileImplement.Implements
                 ClientId = order.ClientId,
                 ClientFIO = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientFIO,
                 FurnitureName = furnName,
+                ImplementerId = order.ImplementerId.Value,
+                ImplementerName = source.Implementers.FirstOrDefault(implementer => implementer.Id == order.ImplementerId)?.Name,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
