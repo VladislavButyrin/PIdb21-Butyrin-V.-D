@@ -17,16 +17,19 @@ namespace FurnitureShopFileImplement
         private readonly string OrderFileName = "Order.xml";
         private readonly string FurnitureFileName = "Furniture.xml";
         private readonly string ClientFileName = "Client.xml";
+        private readonly string ImplementerFileName = "Implementer.xml";
         public List<Component> Components { get; set; }
         public List<Order> Orders { get; set; }
         public List<Furniture> Furnitures { get; set; }
         public List<Client> Clients { get; set; }
+        public List<Implementer> Implementers { get; set; }
         private FileDataListSingleton()
         {
             Components = LoadComponents();
             Orders = LoadOrders();
             Furnitures = LoadFurnitures();
             Clients = LoadClients();
+            Implementers = LoadImplementers();
         }
 
 
@@ -43,6 +46,8 @@ namespace FurnitureShopFileImplement
             SaveComponents();
             SaveOrders();
             SaveFurnitures();
+            SaveClients();
+            SaveImplementers();
         }
         private List<Component> LoadComponents()
         {
@@ -225,6 +230,45 @@ namespace FurnitureShopFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(OrderFileName);
+            }
+        }
+
+        private List<Implementer> LoadImplementers()
+        {
+            var list = new List<Implementer>();
+            if (File.Exists(ImplementerFileName))
+            {
+                XDocument xDocument = XDocument.Load(ImplementerFileName);
+                var xElements = xDocument.Root.Elements("Implementers").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Implementer
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        Name = elem.Element("Name").Value,
+                        WorkingTime = Convert.ToInt32(elem.Element("WorkingTime").Value),
+                        PauseTime = Convert.ToInt32(elem.Element("PauseTime").Value)
+                    });
+                }
+            }
+            return list;
+        }
+
+        private void SaveImplementers()
+        {
+            if (Implementers != null)
+            {
+                var xElement = new XElement("Implementers");
+                foreach (var client in Implementers)
+                {
+                    xElement.Add(new XElement("Implementer",
+                    new XAttribute("Id", client.Id),
+                    new XElement("Name", client.Name),
+                    new XElement("WorkingTime", client.WorkingTime),
+                    new XElement("PauseTime", client.PauseTime)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(ImplementerFileName);
             }
         }
     }

@@ -2,6 +2,7 @@
 using FurnitureShopBusinessLogic.BindingModels;
 using FurnitureShopBusinessLogic.ViewModels;
 using FurnitureShopListImplement.Models;
+using FurnitureShopBusinessLogic.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,12 +37,13 @@ namespace FurnitureShopListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.FurnitureId == model.FurnitureId)
+                if ((!model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date) ||
+                (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate.Date >= model.DateFrom.Value.Date && order.DateCreate.Date <= model.DateTo.Value.Date) ||
+                (model.ClientId.HasValue && order.ClientId == model.ClientId) ||
+                (model.FreeOrders.HasValue && model.FreeOrders.Value && order.Status == OrderStatus.Принят) ||
+                (model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && order.Status == OrderStatus.Выполняется))
                 {
-                    if (order.ClientId == model.ClientId)
-                    {
-                        result.Add(CreateModel(order));
-                    }
+                    result.Add(CreateModel(order));         
                 }
             }
             return result;
@@ -113,6 +115,8 @@ namespace FurnitureShopListImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.FurnitureId = model.FurnitureId;
+            order.ClientId = model.ClientId;
+            order.ImplementerId = model.ImplementerId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -133,12 +137,31 @@ namespace FurnitureShopListImplement.Implements
                     break;
                 }
             }
-
+            string clientFIO = null;
+            foreach (var client in source.Clients)
+            {
+                if (client.Id == order.ClientId)
+                {
+                    clientFIO = client.ClientFIO;
+                }
+            }
+            string implementerName = null;
+            foreach (var implementer in source.Implementers)
+            {
+                if (implementer.Id == order.ImplementerId)
+                {
+                    implementerName = implementer.Name;
+                }
+            }
             return new OrderViewModel
             {
                 Id = order.Id,
                 FurnitureId = order.FurnitureId,
                 FurnitureName = furnName,
+                ClientId = order.ClientId.Value,
+                ClientFIO = clientFIO,
+                ImplementerId = order.ImplementerId.Value,
+                ImplementerName = implementerName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,

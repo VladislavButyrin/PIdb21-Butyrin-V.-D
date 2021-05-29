@@ -10,6 +10,7 @@ namespace FurnitureShopDatabaseImplement.Models
         [Required]
         public int FurnitureId { get; set; }
         public int ClientId { get; set; }
+        public int? ImplementerId { get; set; }
         [Required]
         public int Count { get; set; }
         [Required]
@@ -22,5 +23,6 @@ namespace FurnitureShopDatabaseImplement.Models
         public virtual Furniture Furniture { get; set; }
 
         public virtual Client Client { get; set; }
+        public virtual Implementer Implementer { get; set; }
     }
 }
